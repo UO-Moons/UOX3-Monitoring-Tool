@@ -19,6 +19,11 @@ public static class Utility
     public static bool htmlStatusEnabled = true;
     public static int htmlStatusInterval = 60; // seconds
 
+    public static class VersionInfo
+    {
+        public const string Version = "v0.1-alpha";
+    }
+
     public static void LoadConfig()
     {
         if (!File.Exists(configPath))

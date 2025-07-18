@@ -38,7 +38,7 @@ class UOX3MonitorApp : Form
         trayMenu.Items.Add("Exit", null, OnExit);
 
         trayIcon = new NotifyIcon();
-        trayIcon.Text = "UOX3 Monitor";
+        trayIcon.Text = $"UOX3 Monitor {VersionInfo.Version}";
         var asm = typeof(UOX3MonitorApp).Assembly;
         using (var stream = asm.GetManifestResourceStream("UOX3TrayMonitor.uox3monitor.ico"))
         {
@@ -200,6 +200,7 @@ class UOX3MonitorApp : Form
                     runningProcess.StartInfo.WorkingDirectory = Path.GetDirectoryName(exePath);
                     runningProcess.Start();
                     SendDiscordAlert($"UOX3 Monitor: {shardName} started.");
+                    Log($"Starting UOX3 Monitor {VersionInfo.Version}");
                     runningProcess.WaitForExit();
                     runningProcess = null;
 

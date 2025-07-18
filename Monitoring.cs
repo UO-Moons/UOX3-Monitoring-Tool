@@ -102,6 +102,7 @@ class Monitoring
                 proc.StartInfo.WorkingDirectory = Path.GetDirectoryName(exePath);
                 proc.Start();
                 SendDiscordAlert($"UOX3 Monitor: {shardName} started.");
+                Log($"Starting UOX3 Monitor {VersionInfo.Version}");
                 proc.WaitForExit();
 
                 restartAttempts++;
